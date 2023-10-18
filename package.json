@@ -1,27 +1,29 @@
 {
-    "name": "graphql-track-service",
-    "version": "1.0.0",
-    "description": "Music track search service GraphQL API",
-    "type": "module",
-    "main": "index.js",
-    "scripts": {
-        "compile": "tsc",
-        "start": "ts-node ./src/index.ts"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "@apollo/server": "^4.9.4",
-        "@types/node": "^20.8.6",
-        "class-validator": "^0.14.0",
-        "graphql": "^16.8.1",
-        "graphql-scalars": "^1.22.4",
-        "reflect-metadata": "^0.1.13",
-        "sqlite3": "^5.1.6",
-        "type-graphql": "2.0.0-beta.3",
-        "typeorm": "^0.3.17",
-        "typescript": "^5.2.2"
-    },
-    "devDependencies": {
-        "ts-node": "^10.9.1"
-    }
+   "name": "graphql-track-service",
+   "version": "1.0.0",
+   "description": "Music track search service GraphQL API",
+   "type": "module",
+   "main": "index.js",
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+   },
+   "license": "MIT",
+   "dependencies": {
+      "@apollo/server": "^4.9.4",
+      "@types/node": "^20.8.6",
+      "class-validator": "^0.14.0",
+      "graphql": "^16.8.1",
+      "graphql-scalars": "^1.22.4",
+      "reflect-metadata": "^0.1.13",
+      "sqlite3": "^5.1.6",
+      "type-graphql": "2.0.0-beta.3",
+      "typeorm": "0.3.17",
+      "typescript": "^5.2.2"
+   },
+   "devDependencies": {
+      "ts-node": "10.9.1",
+      "@types/node": "^20.8.6",
+      "typescript": "^5.2.2"
+   }
 }

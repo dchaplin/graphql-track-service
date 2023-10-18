@@ -11,8 +11,8 @@ export class Track {
     @Field((_type) => Int)
     duration!: number;
 
-    @Field((_type) => Int)
-    ISRC!: number;
+    @Field()
+    ISRC!: string;
 
     @Field()
     releaseDate!: Date;
