@@ -5,12 +5,17 @@
         "lib": ["es2021"],
         "target": "es2021",
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "Node",
         "esModuleInterop": true,
         "types": ["node"],
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true
+    },
+    "ts-node": {
+        "esm": true,
+        "experimentalSpecifierResolution": "node",
+        "transpileOnly": true
     }
 }

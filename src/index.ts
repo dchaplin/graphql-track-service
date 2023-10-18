@@ -1,8 +1,8 @@
+import "reflect-metadata";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { buildSchema } from "type-graphql";
-import { TrackResolver } from "./resolvers/index.js";
-import "reflect-metadata";
+import { TrackResolver } from "./resolvers/track.resolver";
 
 const schema = await buildSchema({
     resolvers: [TrackResolver],
