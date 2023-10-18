@@ -15,7 +15,9 @@
         "graphql": "^16.8.1",
         "graphql-scalars": "^1.22.4",
         "reflect-metadata": "^0.1.13",
+        "sqlite3": "^5.1.6",
         "type-graphql": "^1.1.1",
+        "typeorm": "^0.3.17",
         "typescript": "^5.2.2"
     },
     "devDependencies": {
