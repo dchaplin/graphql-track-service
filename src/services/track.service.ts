@@ -22,7 +22,6 @@ export class TrackService {
         const track = await this.trackRepository.findOneBy({ name, artistName });
         if (track) return track;
 
-        // if can't find then throw error - track unavailable etc
         return this.retrieveTrackInfoFor(name, artistName);
     }
 

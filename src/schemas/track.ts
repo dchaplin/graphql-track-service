@@ -1,14 +1,15 @@
-import { Field, Float, Int, ObjectType } from "type-graphql";
+import { Field, ID, Int, ObjectType } from "type-graphql";
+import { Base } from "./base";
 
 @ObjectType()
-export class Track {
+export class Track extends Base {
     @Field()
     name!: string;
 
     @Field()
     artistName!: string;
 
-    @Field((_type) => Int)
+    @Field(() => Int)
     duration_ms!: number;
 
     @Field()
