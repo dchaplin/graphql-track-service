@@ -41,8 +41,8 @@ export class TrackResolver {
         return trackService.deleteTrack(trackId);
     }
 
-    @Query(() => String, { nullable: true })
-    async seed(@Arg("name", () => String) name: string) {
+    @Query(() => String)
+    async seed() {
         seed();
         return "done";
     }
