@@ -28,10 +28,18 @@ export class TrackResolver {
     }
 
     @Mutation(() => Track)
-    async updateTrack(@Arg("track") trackInput: TrackInput) {}
+    async updateTrack(@Arg("track") trackInput: TrackInput) {
+        const { trackId, ...params } = trackInput;
 
-    @Mutation(() => Track)
-    async deleteTrack(@Arg("trackId") trackId: number) {}
+        const trackService = new TrackService();
+        return trackService.updateTrack(trackInput.trackId, params);
+    }
+
+    @Mutation(() => Boolean)
+    async deleteTrack(@Arg("trackId") trackId: number) {
+        const trackService = new TrackService();
+        return trackService.deleteTrack(trackId);
+    }
 
     @Query(() => String, { nullable: true })
     async seed(@Arg("name", () => String) name: string) {

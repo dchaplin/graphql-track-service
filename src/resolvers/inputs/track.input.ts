@@ -4,17 +4,20 @@ import { Track } from "../../schemas/track";
 @InputType()
 export class TrackInput implements Partial<Track> {
     @Field()
-    name!: string;
+    trackId!: number;
 
-    @Field()
-    artistName!: string;
+    @Field({ nullable: true })
+    name?: string;
 
-    @Field(() => Int)
-    duration!: number;
+    @Field({ nullable: true })
+    artistName?: string;
 
-    @Field((_type) => Int)
-    ISRC!: number;
+    @Field(() => Int, { nullable: true })
+    duration?: number;
 
-    @Field()
-    releaseDate!: Date;
+    @Field({ nullable: true })
+    ISRC?: string;
+
+    @Field({ nullable: true })
+    releaseDate?: Date;
 }
