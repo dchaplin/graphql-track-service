@@ -12,10 +12,10 @@ export class Track {
     artistName!: string;
 
     @Column()
-    duration!: number;
+    duration_ms!: number;
 
     @Column()
-    ISRC!: string;
+    isrc!: string;
 
     @Column()
     releaseDate!: Date;

@@ -1,6 +1,7 @@
 import { Repository } from "typeorm";
 import { Track } from "../entity/Track";
 import { AppDataSource } from "../data-source";
+import { ArcCloudService, ArcCloudTrack } from "./arcCloud.service";
 
 export class TrackService {
     private readonly trackRepository: Repository<Track>;
@@ -36,6 +37,23 @@ export class TrackService {
     }
 
     private async retrieveTrackInfoFor(name: string, artistName: string) {
-        console.log("Get info from API");
+        const arcCloud = new ArcCloudService();
+        const arcCloudTrack = await arcCloud.findOne(name, artistName);
+        if (!arcCloudTrack) return null; // error message
+
+        const trackParams = this.mapParamsFrom(arcCloudTrack);
+        return await this.trackRepository.save(trackParams);
+    }
+
+    private mapParamsFrom(arcCloudTrack: ArcCloudTrack) {
+        const { name, duration_ms, isrc, artists, album } = arcCloudTrack;
+
+        return {
+            name,
+            duration_ms,
+            isrc,
+            artistName: artists[0].name,
+            releaseDate: album.release_date,
+        };
     }
 }

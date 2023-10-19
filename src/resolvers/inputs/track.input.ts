@@ -13,10 +13,10 @@ export class TrackInput implements Partial<Track> {
     artistName?: string;
 
     @Field(() => Int, { nullable: true })
-    duration?: number;
+    duration_ms?: number;
 
     @Field({ nullable: true })
-    ISRC?: string;
+    isrc?: string;
 
     @Field({ nullable: true })
     releaseDate?: Date;

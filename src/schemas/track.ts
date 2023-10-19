@@ -9,10 +9,10 @@ export class Track {
     artistName!: string;
 
     @Field((_type) => Int)
-    duration!: number;
+    duration_ms!: number;
 
     @Field()
-    ISRC!: string;
+    isrc!: string;
 
     @Field()
     releaseDate!: Date;
