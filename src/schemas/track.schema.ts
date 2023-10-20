@@ -1,5 +1,5 @@
 import { Field, ID, Int, ObjectType } from "type-graphql";
-import { Base } from "./base";
+import { Base } from "./base.schema";
 
 @ObjectType()
 export class Track extends Base {

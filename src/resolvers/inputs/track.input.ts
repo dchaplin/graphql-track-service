@@ -1,5 +1,5 @@
 import { Field, InputType, Int } from "type-graphql";
-import { Track } from "../../schemas/track";
+import { Track } from "../../schemas/track.schema";
 
 @InputType()
 export class TrackInput implements Partial<Track> {

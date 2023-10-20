@@ -1,5 +1,5 @@
 import { Arg, Int, Mutation, Query, Resolver } from "type-graphql";
-import { Track } from "../schemas/track";
+import { Track } from "../schemas/track.schema";
 import { TrackInput } from "./inputs/track.input";
 import { seed } from "../seed";
 import { TrackService } from "../services/track.service";
