@@ -24,7 +24,7 @@ export type ArcCloudTrack = {
 };
 
 export class ArcCloudService {
-    async findOne(name: string, artistName: string): Promise<ArcCloudTrack> {
+    static async findOne(name: string, artistName: string): Promise<ArcCloudTrack> {
         const params = {
             query: `{"track": "${name}", "artists": ["${artistName}"]}`,
             format: "json",

@@ -11,3 +11,13 @@ export const AppDataSource = new DataSource({
     migrations: [],
     subscribers: [],
 });
+
+export const TestDataSource = new DataSource({
+    type: "sqlite",
+    database: "database.test.sqlite",
+    synchronize: true,
+    logging: false,
+    entities: [Track],
+    migrations: [],
+    subscribers: [],
+});
