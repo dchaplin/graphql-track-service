@@ -4,6 +4,12 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { buildSchema } from "type-graphql";
 import { TrackResolver } from "./resolvers/track.resolver";
+import { getUser } from "./auth/getUser";
+import { GraphQLError } from "graphql";
+
+type UserContext = {
+    user: string;
+};
 
 AppDataSource.initialize();
 
@@ -11,13 +17,19 @@ const schema = await buildSchema({
     resolvers: [TrackResolver],
 });
 
-const server = new ApolloServer({ schema });
+const server = new ApolloServer<UserContext>({ schema });
 
-// Passing an ApolloServer instance to the `startStandaloneServer` function:
-//  1. creates an Express app
-//  2. installs your ApolloServer instance as middleware
-//  3. prepares your app to handle incoming requests
 const { url } = await startStandaloneServer(server, {
+    context: async ({ req }) => {
+        const token = req.headers.authorization || "";
+
+        const user = getUser(token);
+        if (!user)
+            throw new GraphQLError("User is not authenticated", {
+                extensions: { code: "UNAUTHENTICATED", http: { status: 401 } },
+            });
+        return { user };
+    },
     listen: { port: 4000 },
 });
 

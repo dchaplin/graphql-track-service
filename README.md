@@ -9,10 +9,16 @@ This is a basic GraphQL API service which allows you to manage and search music 
 1. Run `yarn install` command
 2. Run `yarn start` command
 3. Navigate to http://localhost:4000/ to get to the apollo sandbox
-4. (Optional) use the seed gql query to seed the db with a track.
-5. Run `yarn test` to run the tests
+4. Add an `Authorization` header with the value `12345`
+5. (Optional) use the seed gql query to seed the db with a track.
+
+### Run the test suite:
+
+-   Run `yarn test` to run the tests
 
 ### Notes
 
-- I choose sqlite as a quick and easy db solution for the exercise to avoid focusing too much time setting up a postgres db
-- I would have liked to add typedi and extensions to remove the use of a constructor for setting up the track respository in the track serivce. This would also remove a few lines in the resolver by loading the track service once instead of `const trackService = new TrackService()` each time.
+-   There is no .env but this would be the next thing to do as I have committed the arcCloud api token in the service file. This token has very limited readonly access.
+-   I chose sqlite as a quick and easy db solution for the exercise to avoid focusing too much time setting up a postgres db
+-   I would have liked to add typedi and extensions to remove the use of a constructor for setting up the track respository in the track serivce. This would also remove a few lines in the resolver by loading the track service once instead of `const trackService = new TrackService()` each time.
+-   There is a basic token auth solution where the token and users are store in the code as a map. Building out a user model was just out of scope.
