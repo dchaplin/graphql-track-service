@@ -5,8 +5,8 @@ export async function seed() {
     console.log("Inserting a new track into the database...");
     const track = new Track();
     track.name = "Begin Again";
-    track.artistName = "Ben Bohmer";
-    track.duration_ms = 162;
+    track.artistName = "Ben Böhmer";
+    track.duration_ms = 288834;
     track.isrc = "GBEWA2103550";
     track.releaseDate = new Date("2021-03-25");
     await AppDataSource.manager.save(track);

@@ -37,7 +37,7 @@ export class TrackService {
 
     private async retrieveTrackInfoFor(name: string, artistName: string) {
         const arcCloudTrack = await ArcCloudService.findOne(name, artistName);
-        if (!arcCloudTrack) return null; // error message
+        if (!arcCloudTrack) return null
 
         const trackParams = this.mapParamsFrom(arcCloudTrack);
         return await this.trackRepository.save(trackParams);

@@ -16,6 +16,11 @@ This is a basic GraphQL API service which allows you to manage and search music 
 
 -   Run `yarn test` to run the tests
 
+### Assumptions (Big assumptions)
+
+- For the purpose of this exercise I have assumed 1 artist name per track to lower complexity.
+- The arcCloud api often returns multiple results for a combination of song name and artist name. I have assumed the first result is the correct track and saved that one. This was also to lower complexity and not for the real world.
+
 ### Notes
 
 -   There is no .env but this would be the next thing to do as I have committed the arcCloud api token in the service file. This token has very limited readonly access.
